@@ -7,7 +7,7 @@ namespace CSharpVariableExplorer
 {
     internal class Program
     {
-        private const int NoOfTests = 8;
+        private const int NoOfTests = 8; // set the number of tests in the program as a constant, so should more be added then changing the constant will change the programs behaviour to allow for the new tests.
         private static int _noOfTestsToRun;
         private static void Main(string[] args)
         {

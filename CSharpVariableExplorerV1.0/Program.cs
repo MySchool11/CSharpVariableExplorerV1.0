@@ -2,18 +2,21 @@
 // just type Console.WriteLine("text") as the System namespace has alreasy been referenced by the using statement.
 using System;
 using System.Globalization;
+using System.Security.AccessControl;
 
 namespace CSharpVariableExplorer
 {
     internal class Program
     {
-        private static int noOfTests = 0;
+        private const int noOfTests = 8;
+        private static int noOfTestsToRun = 0;
         private static void Main(string[] args)
         {
             // Deal with any args passed in
             if (args.Length == 0)
             {
                 Console.WriteLine("You started this program with no parameters.");
+                Console.WriteLine("Running all " + noOfTests + " tests.");
             }
             else
             {
@@ -200,55 +203,72 @@ namespace CSharpVariableExplorer
         {
             if (args.Length > 1)
             {
-                Console.WriteLine("Only one switch is allowed, ignoring subsequent switches.");
+                Console.WriteLine("Only one pararmeter is allowed, ignoring subsequent parameters.");
             }
             switch (args[0])
             {
                 case "1":
                     Console.WriteLine("You are choosing one test.");
-                    noOfTests = 1;
+                    noOfTestsToRun = 1;
                     break;
                 case "2":
                     Console.WriteLine("You are choosing two test.");
-                    noOfTests = 2;
+                    noOfTestsToRun = 2;
                     break;
                 case "3":
                     Console.WriteLine("You are choosing three tests.");
-                    noOfTests = 3;
+                    noOfTestsToRun = 3;
                     break;
                 case "4":
                     Console.WriteLine("You are choosing four tests.");
-                    noOfTests = 4;
+                    noOfTestsToRun = 4;
                     break;
                 case "5":
                     Console.WriteLine("You are choosing five tests.");
-                    noOfTests = 5;
+                    noOfTestsToRun = 5;
                     break;
                 case "6":
                     Console.WriteLine("You are choosing six tests.");
-                    noOfTests = 6;
+                    noOfTestsToRun = 6;
                     break;
                 case "7":
                     Console.WriteLine("You are choosing seven tests.");
-                    noOfTests = 7;
+                    noOfTestsToRun = 7;
                     break;
                 case "8":
                     Console.WriteLine("You are choosing eight tests.");
-                    noOfTests = 8;
+                    noOfTestsToRun = 8;
                     break;
                 case "help":
                     HelpUser();
                     break;
+                case "contact":
+                    Contact();
+                    break;
                 default:
-                    Console.WriteLine("You have entered an invalid switch. Displaying help.");
+                    Console.WriteLine("You have entered an invalid parameter. Displaying help.");
                     HelpUser();
                     break;
             }
         }
 
+        private static void Contact()
+        {
+            Console.WriteLine("You can contact the author by emailing code@sam4it.com");
+            Console.WriteLine("I welcome any and all feedback, thanks for taking the time to help.");
+            Environment.Exit(1);
+        }
+
+
         private static void HelpUser()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("To use the paramters this application provides then place them after a forward slash");
+            Console.WriteLine("when starting the program, e.g. runme.exe /2");
+            Console.WriteLine("The available switches are as follows:");
+            Console.WriteLine("1 - " + noOfTests + " - indicate the number of tests to run.");
+            Console.WriteLine("help - display the application help (you are looking at it now).");
+            Console.WriteLine("contact - display the contact details for the author.");
+            Environment.Exit(1);
         }
 
         protected static void ErrorHandler(string err)

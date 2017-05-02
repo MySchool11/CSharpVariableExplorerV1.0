@@ -35,6 +35,7 @@ namespace CSharpVariableExplorerV1._0
                 ErrorHandler(ex.Message);
             }
             // By rights you should use a null check here but the error handling would catch a null anyway
+            // Also you do not need the .ToString() method to convert the GetType() result to a string but it is there for educational purposes
             Console.WriteLine("You entered: " + text + ", using a " + text.GetType().ToString() + " variable type.");
             Console.WriteLine();
             // 32 bit Integer

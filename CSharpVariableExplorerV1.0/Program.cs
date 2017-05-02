@@ -7,6 +7,7 @@ namespace CSharpVariableExplorer
 {
     internal class Program
     {
+        private static int noOfTests = 0;
         private static void Main(string[] args)
         {
             // Deal with any args passed in
@@ -16,10 +17,15 @@ namespace CSharpVariableExplorer
             }
             else
             {
+                /* Instead of just looping through the arguments passed and showing what they were and their types, now pass them to a method to handle them.
+                 * 
                 for (var x = 0; x == args.Length; x++)
                 {
                     Console.WriteLine("Argument " + x + " is " + args[x]);
                 }
+                */
+
+                HandleArgs(args);
             }
             // Set console size
             Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight / 2);
@@ -189,6 +195,62 @@ namespace CSharpVariableExplorer
             Console.WriteLine("Please press enter to exit.");
             Console.ReadLine();
         }
+
+        private static void HandleArgs(string[] args)
+        {
+            if (args.Length > 1)
+            {
+                Console.WriteLine("Only one switch is allowed, ignoring subsequent switches.");
+            }
+            switch (args[0])
+            {
+                case "1":
+                    Console.WriteLine("You are choosing one test.");
+                    noOfTests = 1;
+                    break;
+                case "2":
+                    Console.WriteLine("You are choosing two test.");
+                    noOfTests = 2;
+                    break;
+                case "3":
+                    Console.WriteLine("You are choosing three tests.");
+                    noOfTests = 3;
+                    break;
+                case "4":
+                    Console.WriteLine("You are choosing four tests.");
+                    noOfTests = 4;
+                    break;
+                case "5":
+                    Console.WriteLine("You are choosing five tests.");
+                    noOfTests = 5;
+                    break;
+                case "6":
+                    Console.WriteLine("You are choosing six tests.");
+                    noOfTests = 6;
+                    break;
+                case "7":
+                    Console.WriteLine("You are choosing seven tests.");
+                    noOfTests = 7;
+                    break;
+                case "8":
+                    Console.WriteLine("You are choosing eight tests.");
+                    noOfTests = 8;
+                    break;
+                case "help":
+                    HelpUser();
+                    break;
+                default:
+                    Console.WriteLine("You have entered an invalid switch. Displaying help.");
+                    HelpUser();
+                    break;
+            }
+        }
+
+        private static void HelpUser()
+        {
+            throw new NotImplementedException();
+        }
+
         protected static void ErrorHandler(string err)
         {
             Console.WriteLine("You have an error: " + err);

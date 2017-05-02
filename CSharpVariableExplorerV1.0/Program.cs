@@ -27,7 +27,7 @@ namespace CSharpVariableExplorer
             // Input various type of data
             // Text
             Console.Write("Please enter some text: ");
-            string text = "";
+            string text = ""; // instantiate string text as null so it can be used within the try..catch loop
             try
             {
                 text = Console.ReadLine();

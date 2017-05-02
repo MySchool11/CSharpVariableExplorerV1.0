@@ -2,21 +2,20 @@
 // just type Console.WriteLine("text") as the System namespace has alreasy been referenced by the using statement.
 using System;
 using System.Globalization;
-using System.Security.AccessControl;
 
 namespace CSharpVariableExplorer
 {
     internal class Program
     {
-        private const int noOfTests = 8;
-        private static int noOfTestsToRun = 0;
+        private const int NoOfTests = 8;
+        private static int _noOfTestsToRun;
         private static void Main(string[] args)
         {
             // Deal with any args passed in
             if (args.Length == 0)
             {
                 Console.WriteLine("You started this program with no parameters.");
-                Console.WriteLine("Running all " + noOfTests + " tests.");
+                Console.WriteLine("Running all " + NoOfTests + " tests.");
             }
             else
             {
@@ -29,6 +28,7 @@ namespace CSharpVariableExplorer
                 */
 
                 HandleArgs(args);
+                Console.Write("You have chosen " + _noOfTestsToRun + " tests to run.");
             }
             // Set console size
             Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight / 2);
@@ -209,35 +209,35 @@ namespace CSharpVariableExplorer
             {
                 case "1":
                     Console.WriteLine("You are choosing one test.");
-                    noOfTestsToRun = 1;
+                    _noOfTestsToRun = 1;
                     break;
                 case "2":
                     Console.WriteLine("You are choosing two test.");
-                    noOfTestsToRun = 2;
+                    _noOfTestsToRun = 2;
                     break;
                 case "3":
                     Console.WriteLine("You are choosing three tests.");
-                    noOfTestsToRun = 3;
+                    _noOfTestsToRun = 3;
                     break;
                 case "4":
                     Console.WriteLine("You are choosing four tests.");
-                    noOfTestsToRun = 4;
+                    _noOfTestsToRun = 4;
                     break;
                 case "5":
                     Console.WriteLine("You are choosing five tests.");
-                    noOfTestsToRun = 5;
+                    _noOfTestsToRun = 5;
                     break;
                 case "6":
                     Console.WriteLine("You are choosing six tests.");
-                    noOfTestsToRun = 6;
+                    _noOfTestsToRun = 6;
                     break;
                 case "7":
                     Console.WriteLine("You are choosing seven tests.");
-                    noOfTestsToRun = 7;
+                    _noOfTestsToRun = 7;
                     break;
                 case "8":
                     Console.WriteLine("You are choosing eight tests.");
-                    noOfTestsToRun = 8;
+                    _noOfTestsToRun = 8;
                     break;
                 case "help":
                     HelpUser();
@@ -265,7 +265,7 @@ namespace CSharpVariableExplorer
             Console.WriteLine("To use the paramters this application provides then place them after a forward slash");
             Console.WriteLine("when starting the program, e.g. runme.exe /2");
             Console.WriteLine("The available switches are as follows:");
-            Console.WriteLine("1 - " + noOfTests + " - indicate the number of tests to run.");
+            Console.WriteLine("1 - " + NoOfTests + " - indicate the number of tests to run.");
             Console.WriteLine("help - display the application help (you are looking at it now).");
             Console.WriteLine("contact - display the contact details for the author.");
             Environment.Exit(1);

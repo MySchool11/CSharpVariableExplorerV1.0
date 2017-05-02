@@ -1,4 +1,6 @@
-﻿using System;
+﻿// using declarations make namespaces easily available, so instead of typing System.Console.WriteLine("text"), you can
+// just type Console.WriteLine("text") as the System namespace has alreasy been referenced by the using statement.
+using System;
 using System.Globalization;
 
 namespace CSharpVariableExplorerV1._0

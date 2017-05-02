@@ -3,7 +3,7 @@
 using System;
 using System.Globalization;
 
-namespace CSharpVariableExplorerV1._0
+namespace CSharpVariableExplorer
 {
     internal class Program
     {
